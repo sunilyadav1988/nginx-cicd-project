@@ -10,7 +10,7 @@ pipeline {
 
         stage('Clone Repository') {
             steps {
-               git branch: 'main', git 'https://github.com/sunilyadav1988/nginx-cicd-project.git'
+                git 'https://github.com/sunilyadav1988/nginx-cicd-project.git'
             }
         }
 
