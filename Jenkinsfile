@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         IMAGE_NAME = "sunil093/nginx-cicd"
-        EC2_HOST = "65.2.40.7"
+        EC2_HOST = "3.111.47.54"
     }
 
     stages {
