@@ -22,16 +22,16 @@ pipeline {
                 }
             }
         }
-
-        stage('Deploy to EC2') {
-            steps {
-                sshagent(['ec2-key']) {
-                    sh '''
-                    ssh -o StrictHostKeyChecking=no ubuntu@$EC2_HOST '
-                    docker pull $IMAGE_NAME:latest
+stage('Deploy to EC2') {
+    steps {
+        sshagent(['ec2-key']) {
+            sh """
+                ssh -o StrictHostKeyChecking=no ubuntu@13.233.157.214 '
+                    docker pull ${IMAGE_NAME}:latest
                     docker stop nginx || true
                     docker rm nginx || true
-                    docker run -d -p 80:80 --name nginx $IMAGE_NAME:latest
+                    docker run -d -p 80:80 --name nginx ${IMAGE_NAME}:latest
+
                     '
                     '''
                 }
