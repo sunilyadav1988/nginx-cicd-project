@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         IMAGE_NAME = "sunil093/nginx-cicd"
-        EC2_HOST = "13.233.157.214"
+        EC2_HOST = "3.110.56.201"
     }
 
     stages {
@@ -26,7 +26,7 @@ stage('Deploy to EC2') {
     steps {
         sshagent(['ec2-key']) {
             sh """
-                ssh -o StrictHostKeyChecking=no ubuntu@13.233.157.214 '
+                ssh -o StrictHostKeyChecking=no ubuntu@3.110.56.201'
                     docker pull ${IMAGE_NAME}:latest
                     docker stop nginx || true
                     docker rm nginx || true
